@@ -3,11 +3,14 @@ import {
   getAllReviews,
   getReview,
   createReview,
-  getReviewSummary
+  getPopularMeals
 } from '../controllers/reviewController.js';
 
 const router = Router();
 
-// TODO: wire up the three routes in README.md section 2 and the summary route in section 3.
+router.get('/', getAllReviews);
+router.post('/', createReview);
+router.get('/popular', getPopularMeals); // must come BEFORE '/:id'
+router.get('/:id', getReview);
 
 export default router;
